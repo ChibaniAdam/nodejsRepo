@@ -28,6 +28,15 @@ const findNote = (req, res)=>{
         }
         });
 }
+const updateNote = (req, res)=>{
+    Student.updateMany({Age: {$gt: 18}, Name: /^A/}, {$inc: {Note: 2}}, (err, student) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(student);
+        }
+        });
+}
 const checkName = (req, res) => {
     Student.find({Name: req.body.Name}, (err, student) => {
         if (err) {
@@ -83,3 +92,4 @@ exports.deleteById = deleteById;
 exports.findById = findById;
 exports.findOver18 = findOver18;
 exports.findNote = findNote;
+exports.updateNote = updateNote;

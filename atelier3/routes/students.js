@@ -5,7 +5,7 @@ const ss = require('../services/studentService');
 router.get('/over18', ss.findOver18);
 router.get('/note', ss.findNote);
 router.get('/:id',ss.findById);
-
+router.put('/note', ss.updateNote);
 router.get('/', ss.findAll);
 
 router.get('/name/:name', ss.findByName);
